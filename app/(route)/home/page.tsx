@@ -109,66 +109,60 @@ export default function Home() {
 
   return (
     <>
-      {windowWidth && 
-        <Stack spacing={3}>
-          <div className="grid w-full place-content-center gap-2">
-            <p className="font-bold">入力欄</p>
-            <canvas
-              className="mx-auto rounded-lg border border-blue-400"
-              ref={editorCanvasRef}
-              width={
-                windowWidth * 0.9 < 600 ? windowWidth * 0.9 : 600
-              }
-              height={300}
-            />
-            <div className="flex justify-center gap-2">
-              <button
-                className={`rounded-xl ${
-                  editMode === "erase" ? "bg-blue-500" : "bg-blue-400"
-                } px-4 py-2 text-white`}
-                onClick={handleErase}
-                aria-label="消しゴムモードに切り替え"
-              >
-                消しゴム
-              </button>
-              <button
-                className={`rounded-xl ${
-                  editMode === "draw" ? "bg-blue-500" : "bg-blue-400"
-                } px-4 py-2 text-white`}
-                onClick={handleDraw}
-                aria-label="ペンモードに切り替え"
-              >
-                書く
-              </button>
-              <button
-                className="rounded-xl bg-red-500 px-4 py-2 text-white"
-                onClick={handleClear}
-                aria-label="クリア"
-              >
-                クリア
-              </button>
-              <button
-                className="rounded-xl bg-purple-500 px-4 py-2 text-white"
-                onClick={handleDisplay}
-                aria-label="表示"
-              >
-                表示
-              </button>
-            </div>
+      <Stack spacing={3}>
+        <div className="grid w-full place-content-center gap-2">
+          <p className="font-bold">入力欄</p>
+          <canvas
+            className="mx-auto rounded-lg border border-blue-400"
+            ref={editorCanvasRef}
+            width={600}
+            height={300}
+          />
+          <div className="flex justify-center gap-2">
+            <button
+              className={`rounded-xl ${
+                editMode === "erase" ? "bg-blue-500" : "bg-blue-400"
+              } px-4 py-2 text-white`}
+              onClick={handleErase}
+              aria-label="消しゴムモードに切り替え"
+            >
+              消しゴム
+            </button>
+            <button
+              className={`rounded-xl ${
+                editMode === "draw" ? "bg-blue-500" : "bg-blue-400"
+              } px-4 py-2 text-white`}
+              onClick={handleDraw}
+              aria-label="ペンモードに切り替え"
+            >
+              書く
+            </button>
+            <button
+              className="rounded-xl bg-red-500 px-4 py-2 text-white"
+              onClick={handleClear}
+              aria-label="クリア"
+            >
+              クリア
+            </button>
+            <button
+              className="rounded-xl bg-purple-500 px-4 py-2 text-white"
+              onClick={handleDisplay}
+              aria-label="表示"
+            >
+              表示
+            </button>
           </div>
+        </div>
 
-          <div className="grid w-full place-content-center gap-2" id="signature-pad">
-            <canvas
-              className="w-full border border-black"
-              ref={PreviewCanvasRef}
-              width={
-                windowWidth * 0.9 < 600 ? windowWidth * 0.9 : 600
-              }
-              height={300}
-            />
-          </div>
-        </Stack>
-      }
+        <div className="grid w-full place-content-center gap-2" id="signature-pad">
+          <canvas
+            className="w-full border border-black"
+            ref={PreviewCanvasRef}
+            width={600}
+            height={300}
+          />
+        </div>
+      </Stack>
     </>
   )
 }
